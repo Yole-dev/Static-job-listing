@@ -1,3 +1,6 @@
+import mobilebg from "./images/bg-header-mobile.svg";
+import desktopbg from "./images/bg-header-desktop.svg";
+
 const data = [
   {
     id: 1,
@@ -153,12 +156,35 @@ const data = [
 
 export default function App() {
   return (
-    <div className="App">
+    <div>
       <StaticJobListing />
     </div>
   );
 }
 
 function StaticJobListing() {
-  return <div className="container">todo</div>;
+  return (
+    <div>
+      {/* conditional rendering for the header background */}
+      <Header src={mobilebg} />
+
+      <div className="container">
+        {data.map((job) => (
+          <JobCard companyName={job.company} key={job.id} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Header({ src }) {
+  return (
+    <div className="header">
+      <img src={src} alt="background" />
+    </div>
+  );
+}
+
+function JobCard({ companyName }) {
+  return <div className="job-card">{companyName}</div>;
 }
