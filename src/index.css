@@ -165,5 +165,5 @@ hr {
 }
 
 /* desktop view */
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
 }
