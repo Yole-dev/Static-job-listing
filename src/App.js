@@ -1,5 +1,5 @@
 import mobilebg from "./images/bg-header-mobile.svg";
-// import desktopbg from "./images/bg-header-desktop.svg";
+import desktopbg from "./images/bg-header-desktop.svg";
 import photosnap from "./images/photosnap.svg";
 import manage from "./images/manage.svg";
 import account from "./images/account.svg";
@@ -176,7 +176,7 @@ function StaticJobListing() {
   return (
     <div>
       {/* conditional rendering for the header background */}
-      <Header src={mobilebg} />
+      <Header mobilesrc={mobilebg} desktopsrc={desktopbg} />
 
       <div className="container">
         {data.map((job) => (
@@ -201,10 +201,20 @@ function StaticJobListing() {
   );
 }
 
-function Header({ src }) {
+function Header({ mobilesrc, desktopsrc }) {
   return (
     <div className="header">
-      <img src={src} alt="background" />
+      <img
+        src={mobilesrc}
+        alt="mobile header background"
+        className="mobile-header"
+      />
+
+      <img
+        src={desktopsrc}
+        alt="desktop header background"
+        className="desktop-header"
+      />
     </div>
   );
 }

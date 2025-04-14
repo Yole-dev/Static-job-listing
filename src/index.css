@@ -48,15 +48,19 @@ button:focus {
 /* App styles */
 
 .header {
-  width: 100%;
-  height: 156px;
+  max-height: 156px;
   background: var(--primary-color);
 }
 
-/* .header img {
+.mobile-header {
+  display: block;
   width: 100%;
-  height: 156px;
-} */
+  max-height: 156px;
+}
+
+.desktop-header {
+  display: none;
+}
 
 .container {
   display: flex;
@@ -184,6 +188,22 @@ hr {
 
 /* desktop view */
 @media (min-width: 1024px) {
+  .header {
+    min-height: 110px;
+    max-height: 110px;
+    width: 100%;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+
+  .desktop-header {
+    display: block;
+    width: 100%;
+    max-height: 110px;
+  }
+
   .job-card {
     height: 150px;
   }
