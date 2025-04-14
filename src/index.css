@@ -41,6 +41,10 @@ button:focus {
   outline: none;
 }
 
+.padding-start {
+  padding-left: 2rem;
+}
+
 /* App styles */
 
 .header {
@@ -48,6 +52,11 @@ button:focus {
   height: 156px;
   background: var(--primary-color);
 }
+
+/* .header img {
+  width: 100%;
+  height: 156px;
+} */
 
 .container {
   display: flex;
@@ -61,7 +70,7 @@ button:focus {
   display: flex;
   justify-content: start;
   gap: 1.3rem;
-  width: 80%;
+  width: 85%;
   height: 250px;
   background: var(--background-color);
   border-radius: 0.3rem;
@@ -96,18 +105,26 @@ button:focus {
   height: 50px;
 }
 
-.sub-container > p:first-of-type {
+.sub-container-desktop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.sub-container-desktop > p:first-of-type {
   font-size: 14px;
   font-weight: 600;
   color: var(--dark-cyan);
 }
 
-.sub-container > p:last-of-type {
+.sub-container-desktop > p:last-of-type {
   color: var(--gray-cyan);
   font-size: 15px;
 }
 
-h5 {
+.company {
+  font-size: 13px;
+  font-weight: 700;
   color: var(--primary-color);
 }
 
@@ -131,11 +148,11 @@ h5 {
   color: var(--background-color);
 }
 
-.job-status p:first-of-type {
+.new {
   background: var(--primary-color);
 }
 
-.job-status p:last-of-type {
+.featured {
   background: var(--dark-cyan);
 }
 
@@ -152,6 +169,7 @@ hr {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   gap: 1rem;
+  overflow-wrap: break-word;
 }
 
 .skills p {
@@ -166,4 +184,63 @@ hr {
 
 /* desktop view */
 @media (min-width: 1024px) {
+  .job-card {
+    height: 150px;
+  }
+
+  .job-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .filtered {
+    width: 0.7%;
+  }
+
+  .sub-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .sub-container img {
+    position: static;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0rem;
+  }
+
+  .company {
+    font-size: 15px;
+  }
+
+  .job-status p {
+    font-size: 13px;
+  }
+
+  .position {
+    font-size: 20px;
+  }
+
+  .timeline {
+    font-size: 20px;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .skills {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    margin-right: 2rem;
+  }
+
+  .skills p {
+    font-size: 20px;
+  }
 }

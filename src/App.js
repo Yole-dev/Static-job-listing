@@ -23,7 +23,7 @@ const data = [
     level: "Senior",
     postedAt: "1d ago",
     contract: "Full Time",
-    location: "USA Only",
+    location: "USA only",
     languages: ["HTML", "CSS", "JavaScript"],
     tools: [],
   },
@@ -53,7 +53,7 @@ const data = [
     level: "Junior",
     postedAt: "2d ago",
     contract: "Part Time",
-    location: "USA Only",
+    location: "USA only",
     languages: ["JavaScript"],
     tools: ["React", "Sass"],
   },
@@ -68,7 +68,7 @@ const data = [
     level: "Junior",
     postedAt: "5d ago",
     contract: "Contract",
-    location: "USA Only",
+    location: "USA only",
     languages: ["CSS", "JavaScript"],
     tools: [],
   },
@@ -98,7 +98,7 @@ const data = [
     level: "Junior",
     postedAt: "2w ago",
     contract: "Full Time",
-    location: "UK Only",
+    location: "UK only",
     languages: ["Ruby"],
     tools: ["RoR"],
   },
@@ -128,7 +128,7 @@ const data = [
     level: "Junior",
     postedAt: "2w ago",
     contract: "Full Time",
-    location: "USA Only",
+    location: "USA only",
     languages: ["JavaScript"],
     tools: ["Vue", "Sass"],
   },
@@ -224,25 +224,27 @@ function JobCard({
   tools,
 }) {
   return (
-    <div className="job-card">
-      <div className="filtered"></div>
+    <div className={`job-card ${!newJob || !featured ? "padding-start" : ""}`}>
+      {newJob && featured && <div className="filtered"></div>}
 
       <div className="job-details">
         <div className="sub-container">
           <img src={logo} alt="company logo" />
 
-          <div className="job-status-container">
-            <h5>{company}</h5>
+          <div className="sub-container-desktop">
+            <div className="job-status-container">
+              <p className="company">{company}</p>
 
-            <div className="job-status">
-              <p>NEW!</p>
-              <p>FEATURED</p>
+              <div className="job-status">
+                {newJob && <p className="new">NEW!</p>}
+                {featured && <p className="featured">FEATURED</p>}
+              </div>
             </div>
+
+            <p className="position">{position}</p>
+
+            <p className="timeline">{`${postedAt} . ${contract} . ${location}`}</p>
           </div>
-
-          <p>{position}</p>
-
-          <p>{`${postedAt} . ${contract} . ${location}`}</p>
         </div>
 
         <hr />
