@@ -74,7 +74,7 @@ button:focus {
   height: 250px;
   background: var(--background-color);
   border-radius: 0.3rem;
-  box-shadow: -0.1rem 0.4rem 1rem var(--gray-cyan);
+  box-shadow: -0.1rem 0.4rem 1rem -0.4rem var(--primary-color);
 }
 
 .filtered {
@@ -111,13 +111,13 @@ button:focus {
   gap: 0.7rem;
 }
 
-.sub-container-desktop > p:first-of-type {
+.position {
   font-size: 14px;
   font-weight: 600;
   color: var(--dark-cyan);
 }
 
-.sub-container-desktop > p:last-of-type {
+.timeline {
   color: var(--gray-cyan);
   font-size: 15px;
 }
@@ -214,15 +214,15 @@ hr {
   }
 
   .company {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .job-status p {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .position {
-    font-size: 20px;
+    font-size: 23px;
   }
 
   .timeline {
