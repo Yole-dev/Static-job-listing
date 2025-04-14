@@ -225,9 +225,30 @@ function JobCard({
 }) {
   return (
     <div className="job-card">
-      <div></div>
+      <div className="filtered"></div>
 
-      <div>{company}</div>
+      <div className="job-details">
+        <div className="sub-container">
+          <img src={logo} alt="company logo" />
+
+          <div className="job-status-container">
+            <h5>{company}</h5>
+
+            <div className="job-status">
+              <p>NEW!</p>
+              <p>FEATURED</p>
+            </div>
+          </div>
+
+          <p>{position}</p>
+
+          <p>{`${postedAt} . ${contract} . ${location}`}</p>
+        </div>
+
+        <hr />
+
+        <div className="skills"></div>
+      </div>
     </div>
   );
 }

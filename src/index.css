@@ -43,28 +43,107 @@ button:focus {
 
 /* App styles */
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  margin: 3.5rem 0;
-}
-
 .header {
   width: 100%;
   height: 156px;
   background: var(--primary-color);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 3.5rem 0;
+}
+
 .job-card {
   display: flex;
   justify-content: start;
+  gap: 1.3rem;
   width: 80%;
   height: 250px;
   background: var(--background-color);
   border-radius: 0.3rem;
   box-shadow: -0.1rem 0.4rem 1rem var(--gray-cyan);
+}
+
+.filtered {
+  width: 1.8%;
+  height: inherit;
+  background-color: var(--primary-color);
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.job-details {
+  width: 80%;
+  padding: 1rem 0;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.sub-container img {
+  position: relative;
+  bottom: 2.5rem;
+  margin-bottom: -2.5rem;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.sub-container > p:first-of-type {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-cyan);
+}
+
+.sub-container > p:last-of-type {
+  color: var(--gray-cyan);
+  font-size: 15px;
+}
+
+h5 {
+  color: var(--primary-color);
+}
+
+.job-status-container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.job-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.job-status p {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0.3rem 0.5rem;
+  border-radius: 1rem;
+  color: var(--background-color);
+}
+
+.job-status p:first-of-type {
+  background: var(--primary-color);
+}
+
+.job-status p:last-of-type {
+  background: var(--dark-cyan);
+}
+
+hr {
+  height: 1px;
+  background: var(--gray-cyan);
+  margin: 1rem 0;
+  opacity: 0.6;
 }
 
 /* desktop view */
