@@ -191,7 +191,7 @@ function StaticJobListing() {
             postedAt={job.postedAt}
             contract={job.contract}
             location={job.location}
-            language={job.language}
+            languages={job.languages}
             tools={job.tools}
             key={job.id}
           />
@@ -247,8 +247,27 @@ function JobCard({
 
         <hr />
 
-        <div className="skills"></div>
+        <div className="skills">
+          <p>{role}</p>
+          <p>{level}</p>
+
+          {languages.map((language, i) => (
+            <Languages language={language} key={i} />
+          ))}
+
+          {tools.map((tool, i) => (
+            <Tools tool={tool} key={i} />
+          ))}
+        </div>
       </div>
     </div>
   );
+}
+
+function Languages({ language }) {
+  return <p> {language} </p>;
+}
+
+function Tools({ tool }) {
+  return <p>{tool}</p>;
 }

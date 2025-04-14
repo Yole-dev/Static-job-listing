@@ -142,8 +142,26 @@ h5 {
 hr {
   height: 1px;
   background: var(--gray-cyan);
-  margin: 1rem 0;
+  margin: 1.3rem 0;
   opacity: 0.6;
+}
+
+.skills {
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skills p {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--primary-color);
+  background-color: var(--filter-color);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 }
 
 /* desktop view */
