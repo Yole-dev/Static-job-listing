@@ -85,6 +85,36 @@ button:focus {
 
 .filter-content {
   width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: var(--filter-color);
+  padding: 0.3rem;
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+}
+
+.delete-filter-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+  padding: 0.2rem;
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+}
+
+.close-icon {
+  font-size: 17px;
+  color: var(--filter-color);
 }
 
 .clear-filter {
@@ -235,6 +265,10 @@ hr {
 
   .filter {
     width: 90%;
+  }
+
+  .filter-content {
+    width: 80%;
   }
 
   .job-card {

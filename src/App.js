@@ -175,9 +175,10 @@ export default function App() {
 
 function StaticJobListing() {
   const [isOpen, setIsOpen] = useState(false);
+  const [filterText, setFilterText] = useState("");
 
   function handleClick(e) {
-    console.log(e.target.textContent);
+    setFilterText(e.target.textContent);
     setIsOpen(true);
   }
 
@@ -189,7 +190,7 @@ function StaticJobListing() {
     <div>
       <Header mobilesrc={mobilebg} desktopsrc={desktopbg} />
 
-      {isOpen && <Filter onClear={handleClear} />}
+      {isOpen && <Filter onClear={handleClear} filterText={setFilterText} />}
 
       <div className="container">
         {data.map((job) => (
@@ -233,17 +234,31 @@ function Header({ mobilesrc, desktopsrc }) {
   );
 }
 
-function Filter({ onClear }) {
+function Filter({ onClear, filterText }) {
   return (
     <div className="filter-container">
       <div className="filter">
-        <div className="filter-content"></div>
+        <div className="filter-content">
+          <FilterContent text={filterText} />
+        </div>
 
         <p onClick={onClear} className="clear-filter">
           Clear
         </p>
       </div>
     </div>
+  );
+}
+
+function FilterContent({ text }) {
+  return (
+    <p className="filter-item">
+      {text}
+
+      <span className="delete-filter-item">
+        <ion-icon name="close-sharp" className="close-icon"></ion-icon>
+      </span>
+    </p>
   );
 }
 
