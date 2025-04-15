@@ -357,7 +357,7 @@ function JobCard({
 }
 
 function Languages({ language }) {
-  return <p> {language} </p>;
+  return <p>{language}</p>;
 }
 
 function Tools({ tool }) {
