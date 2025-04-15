@@ -84,7 +84,7 @@ button:focus {
 }
 
 .filter-content {
-  width: 60%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -93,7 +93,7 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--primary-color);
   background: var(--filter-color);
@@ -108,6 +108,7 @@ button:focus {
   align-items: center;
   background: var(--primary-color);
   padding: 0.2rem;
+  margin-left: 0.5rem;
   border-top-right-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
 }

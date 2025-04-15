@@ -175,22 +175,25 @@ export default function App() {
 
 function StaticJobListing() {
   const [isOpen, setIsOpen] = useState(false);
-  const [filterText, setFilterText] = useState("");
+  const [filterTexts, setFilterTexts] = useState([]);
 
   function handleClick(e) {
-    setFilterText(e.target.textContent);
     setIsOpen(true);
+    setFilterTexts([...filterTexts, e.target.textContent]);
   }
+
+  const filterTextArr = [...filterTexts];
 
   function handleClear() {
     setIsOpen(false);
+    setFilterTexts([]);
   }
 
   return (
     <div>
       <Header mobilesrc={mobilebg} desktopsrc={desktopbg} />
 
-      {isOpen && <Filter onClear={handleClear} filterText={setFilterText} />}
+      {isOpen && <Filter onClear={handleClear} filterTexts={filterTextArr} />}
 
       <div className="container">
         {data.map((job) => (
@@ -234,12 +237,14 @@ function Header({ mobilesrc, desktopsrc }) {
   );
 }
 
-function Filter({ onClear, filterText }) {
+function Filter({ onClear, filterTexts }) {
   return (
     <div className="filter-container">
       <div className="filter">
         <div className="filter-content">
-          <FilterContent text={filterText} />
+          {filterTexts.map((el, i) => (
+            <FilterContent text={el} key={i} />
+          ))}
         </div>
 
         <p onClick={onClear} className="clear-filter">
@@ -250,13 +255,19 @@ function Filter({ onClear, filterText }) {
   );
 }
 
-function FilterContent({ text }) {
+function FilterContent({ text, key }) {
+  function handleCloseItem() {}
+
   return (
     <p className="filter-item">
       {text}
 
       <span className="delete-filter-item">
-        <ion-icon name="close-sharp" className="close-icon"></ion-icon>
+        <ion-icon
+          name="close-sharp"
+          className="close-icon"
+          onClick={handleCloseItem}
+        ></ion-icon>
       </span>
     </p>
   );
