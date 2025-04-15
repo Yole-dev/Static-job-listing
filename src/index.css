@@ -115,6 +115,10 @@ button:focus {
   border-bottom-right-radius: 0.2rem;
 }
 
+.delete-filter-item:hover {
+  background: var(--dark-cyan);
+}
+
 .close-icon {
   font-size: 17px;
   color: var(--filter-color);
@@ -123,6 +127,12 @@ button:focus {
 .clear-filter {
   font-size: 14px;
   color: var(--gray-cyan);
+}
+
+.clear-filter:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
 }
 
 .container {
@@ -178,21 +188,25 @@ button:focus {
   gap: 0.7rem;
 }
 
+.company {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
 .position {
   font-size: 14px;
   font-weight: 600;
   color: var(--dark-cyan);
 }
 
+.position:hover {
+  color: var(--primary-color);
+}
+
 .timeline {
   color: var(--gray-cyan);
   font-size: 15px;
-}
-
-.company {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--primary-color);
 }
 
 .job-status-container {
@@ -247,6 +261,11 @@ hr {
   background-color: var(--filter-color);
   padding: 0.5rem;
   border-radius: 0.3rem;
+}
+
+.skill-hover:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
 }
 
 /* desktop view */

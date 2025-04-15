@@ -340,8 +340,8 @@ function JobCard({
         <hr />
 
         <div className="skills" onClick={onClick}>
-          <p>{role}</p>
-          <p>{level}</p>
+          <p className="skill-hover">{role}</p>
+          <p className="skill-hover">{level}</p>
 
           {languages.map((language, i) => (
             <Languages language={language} key={i} />
@@ -357,9 +357,9 @@ function JobCard({
 }
 
 function Languages({ language }) {
-  return <p>{language}</p>;
+  return <p className="skill-hover">{language}</p>;
 }
 
 function Tools({ tool }) {
-  return <p>{tool}</p>;
+  return <p className="skill-hover">{tool}</p>;
 }
