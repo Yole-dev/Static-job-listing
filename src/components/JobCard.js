@@ -1,5 +1,5 @@
-import Languages from "./App";
-import Tools from "./App";
+import Languages from "./Languages";
+import Tools from "./Tools";
 
 export default function JobCard({
   company,

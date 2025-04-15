@@ -1,8 +1,8 @@
 import { useState } from "react";
 import desktopbg from "../images/bg-header-desktop.svg";
 import mobilebg from "../images/bg-header-mobile.svg";
-import data from "./App";
-import JobCard from "./App";
+import { data } from "./App";
+import JobCard from "./JobCard";
 import Filter from "./Filter";
 import Header from "./Header";
 
@@ -26,7 +26,7 @@ export default function StaticJobListing() {
   }
 
   const filteredJobs =
-    filterTexts.length >= 0
+    filterTexts.length > 0
       ? data.filter((job) => {
           const jobFilters = [
             job.role,
