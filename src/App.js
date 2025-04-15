@@ -178,25 +178,48 @@ function StaticJobListing() {
   const [filterTexts, setFilterTexts] = useState([]);
 
   function handleClick(e) {
+    const item = e.target.textContent;
+    setFilterTexts((text) => (text.includes(item) ? text : [...text, item]));
     setIsOpen(true);
-    setFilterTexts([...filterTexts, e.target.textContent]);
   }
-
-  const filterTextArr = [...filterTexts];
 
   function handleClear() {
     setIsOpen(false);
     setFilterTexts([]);
   }
 
+  function handleRemoveFilterItem(filteredText) {
+    setFilterTexts((item) => item.filter((item) => item !== filteredText));
+  }
+
+  const filteredJobs =
+    filterTexts.length >= 0
+      ? data.filter((job) => {
+          const jobFilters = [
+            job.role,
+            job.level,
+            ...job.languages,
+            ...job.tools,
+          ];
+
+          return filterTexts.every((filter) => jobFilters.includes(filter));
+        })
+      : data;
+
   return (
     <div>
       <Header mobilesrc={mobilebg} desktopsrc={desktopbg} />
 
-      {isOpen && <Filter onClear={handleClear} filterTexts={filterTextArr} />}
+      {(isOpen || filterTexts.length > 0) && (
+        <Filter
+          onClear={handleClear}
+          filterTexts={filterTexts}
+          onRemoveFilterItem={handleRemoveFilterItem}
+        />
+      )}
 
       <div className="container">
-        {data.map((job) => (
+        {filteredJobs.map((job) => (
           <JobCard
             company={job.company}
             logo={job.logo}
@@ -237,13 +260,17 @@ function Header({ mobilesrc, desktopsrc }) {
   );
 }
 
-function Filter({ onClear, filterTexts }) {
+function Filter({ onClear, filterTexts, onRemoveFilterItem }) {
   return (
     <div className="filter-container">
       <div className="filter">
         <div className="filter-content">
           {filterTexts.map((el, i) => (
-            <FilterContent text={el} key={i} />
+            <FilterContent
+              text={el}
+              key={`${el}-${i}`}
+              onRemoveItem={onRemoveFilterItem}
+            />
           ))}
         </div>
 
@@ -255,9 +282,7 @@ function Filter({ onClear, filterTexts }) {
   );
 }
 
-function FilterContent({ text, key }) {
-  function handleCloseItem() {}
-
+function FilterContent({ text, onRemoveItem }) {
   return (
     <p className="filter-item">
       {text}
@@ -266,7 +291,7 @@ function FilterContent({ text, key }) {
         <ion-icon
           name="close-sharp"
           className="close-icon"
-          onClick={handleCloseItem}
+          onClick={() => onRemoveItem(text)}
         ></ion-icon>
       </span>
     </p>

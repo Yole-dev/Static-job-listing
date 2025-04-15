@@ -73,7 +73,6 @@ button:focus {
   bottom: 2.5rem;
   margin-bottom: -2.5rem;
   width: 85%;
-  height: 100px;
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -85,8 +84,11 @@ button:focus {
 
 .filter-content {
   width: 90%;
+  height: 80px;
+  overflow: scroll;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .filter-item {
@@ -119,6 +121,7 @@ button:focus {
 }
 
 .clear-filter {
+  font-size: 14px;
   color: var(--gray-cyan);
 }
 
@@ -142,7 +145,7 @@ button:focus {
 }
 
 .filtered {
-  width: 1.8%;
+  width: 1.2%;
   height: inherit;
   background-color: var(--primary-color);
   border-top-left-radius: 0.3rem;
@@ -270,6 +273,12 @@ hr {
 
   .filter-content {
     width: 80%;
+    max-height: 50px;
+    gap: 1.5rem;
+  }
+
+  .filter-item {
+    font-size: 18px;
   }
 
   .job-card {
