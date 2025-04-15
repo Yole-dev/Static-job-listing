@@ -62,6 +62,35 @@ button:focus {
   display: none;
 }
 
+.filter-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.filter {
+  position: relative;
+  bottom: 2.5rem;
+  margin-bottom: -2.5rem;
+  width: 85%;
+  height: 100px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background-color);
+  border-radius: 0.3rem;
+  box-shadow: -0.1rem 0.4rem 1rem -0.4rem var(--primary-color);
+}
+
+.filter-content {
+  width: 60%;
+}
+
+.clear-filter {
+  color: var(--gray-cyan);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -202,6 +231,10 @@ hr {
     display: block;
     width: 100%;
     max-height: 110px;
+  }
+
+  .filter {
+    width: 90%;
   }
 
   .job-card {

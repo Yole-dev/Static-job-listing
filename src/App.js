@@ -10,6 +10,7 @@ import shortly from "./images/shortly.svg";
 import insure from "./images/insure.svg";
 import eyecam from "./images/eyecam-co.svg";
 import airFilter from "./images/the-air-filter-company.svg";
+import { useState } from "react";
 
 const data = [
   {
@@ -173,10 +174,22 @@ export default function App() {
 }
 
 function StaticJobListing() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleClick(e) {
+    console.log(e.target.textContent);
+    setIsOpen(true);
+  }
+
+  function handleClear() {
+    setIsOpen(false);
+  }
+
   return (
     <div>
-      {/* conditional rendering for the header background */}
       <Header mobilesrc={mobilebg} desktopsrc={desktopbg} />
+
+      {isOpen && <Filter onClear={handleClear} />}
 
       <div className="container">
         {data.map((job) => (
@@ -194,6 +207,7 @@ function StaticJobListing() {
             languages={job.languages}
             tools={job.tools}
             key={job.id}
+            onClick={handleClick}
           />
         ))}
       </div>
@@ -219,6 +233,20 @@ function Header({ mobilesrc, desktopsrc }) {
   );
 }
 
+function Filter({ onClear }) {
+  return (
+    <div className="filter-container">
+      <div className="filter">
+        <div className="filter-content"></div>
+
+        <p onClick={onClear} className="clear-filter">
+          Clear
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function JobCard({
   company,
   logo,
@@ -232,6 +260,7 @@ function JobCard({
   location,
   languages,
   tools,
+  onClick,
 }) {
   return (
     <div className={`job-card ${!newJob || !featured ? "padding-start" : ""}`}>
@@ -259,7 +288,7 @@ function JobCard({
 
         <hr />
 
-        <div className="skills">
+        <div className="skills" onClick={onClick}>
           <p>{role}</p>
           <p>{level}</p>
 
